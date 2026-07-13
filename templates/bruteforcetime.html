@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BruteforceTimeEstimator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='generator.css') }}">
+</head>
+<body>
+    
+<header>
+   <nav>
+    <div class="header">
+        <div class="logo-menu"><b>⟠🔐⟠ PasswordNexus</b></div>
+        <div class="menu-items">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('generate_password') }}">Generator</a>
+            <a href="{{ url_for('analyzer') }}">Analyzer</a>
+            <a href="{{ url_for('page_brute') }}">Brute_force_time</a>
+            <a href="{{ url_for('page_hash') }}">Hash coverter</a>
+            <a href="{{ url_for('page_base') }}">Base enc/dec</a>
+        </div>
+    </div>
+    </nav>
+</header>
+
+<div class="bruteforcebox">
+  <form action="{{ url_for('page_brute') }}" method="POST">
+    <h1 class="bruteheading"><strong>⏱️ Brute Force Time Estimator</strong></h1>
+    
+    <div class="bruteinputbox">
+        <input type="number" name="length" placeholder="Enter Length" required style="color: white;">
+    </div>  
+
+    <div class="bruteinputbox">
+        <input type="number" name="Rate" placeholder="Guesses/sec (e.g. 1000000)" required style="color: white;">
+    </div>
+
+    <div class="bruteinputbox">
+        <select name="charset" required style="color: white;">
+            <option value="" disabled selected>Select Complexity</option>
+            <option value="1">Lowercase Only</option>
+            <option value="2">Lower + Upper</option>
+            <option value="3">Alphanumeric</option>
+            <option value="4">Full (Symbols included)</option>
+        </select>
+    </div>
+    
+    <div class="verifybrute">
+        <label><input type="checkbox" required> Agree to <a href="{{ url_for('page_terms') }}" target="_blank" class="term">Terms</a></label>
+    </div>
+
+    <button>Estimate Now</button>
+  </form>
+
+  {% if result %}
+  <div class="result">
+      <h3>Estimated Time:</h3>
+      <h2 style="color: #00c6ff;">{{ result }}</h2>
+  </div>
+  {% endif %}
+
+</div>
+
+<footer>
+    <div class="footer">
+        <p>© 2025 Air University | Cybersecurity Project</p>
+    </div>
+</footer>
+
+</body>
+</html>

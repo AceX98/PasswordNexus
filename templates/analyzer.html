@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PasswordAnalyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='generator.css') }}">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="header">
+        <div class="logo-menu"><b>⟠🔐⟠ PasswordNexus</b></div>
+        <div class="menu-items">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('generate_password') }}">Generator</a>
+            <a href="{{ url_for('analyzer') }}">Analyzer</a>
+            <a href="{{ url_for('page_brute') }}">Brute_force_time</a>
+            <a href="{{ url_for('page_hash') }}">Hash coverter</a>
+            <a href="{{ url_for('page_base') }}">Base enc/dec</a>
+        </div>
+    </div>
+  </nav>
+</header>
+    
+<div class="analyzerbox">
+  <form action="{{ url_for('analyzer') }}" method="POST">
+    <h1><strong>🧪Strength Analyzer</strong></h1>
+
+    <div class="analyzertext">
+      <input type="password" name="password" placeholder="Enter Your Password" required style="color: white;">
+    </div>
+
+    <div class="verifyanalyzer">
+     <label><input type="checkbox" required> Agree to <a href="{{ url_for('page_terms') }}" target="_blank" class="term">Terms</a></label>
+    </div>
+
+    <button type="submit">Check Strength</button>
+  </form>
+
+  {% if result %}
+   <div class="resulta">
+      {% if result.is_valid %}
+        <p>Rating: <strong>{{ result.rating }}</strong></p>
+        <p>Score: <strong>{{ result.Score }}/4</strong></p>
+        <p>Time to Crack: <strong>{{ result.Crack_time }}</strong></p>
+        {% for s in result.suggestions %}
+            <p style="color: #ffcccb;">Tip: {{ s }}</p>
+        {% endfor %}
+      {% else %}
+        <p style="color: red;">{{ result.Msg }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
+<footer>
+    <div class="footer">
+        <p>© 2025 Air University | Cybersecurity Project</p>
+    </div>
+</footer>
+</body>
+</html>

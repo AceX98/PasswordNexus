@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PasswordNexus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="backgroundimage">
+        
+        <header>
+           <nav>
+    <div class="header">
+        <div class="logo-menu"><b>⟠🔐⟠ PasswordNexus</b></div>
+        
+        <div class="menu-items">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('generate_password') }}">Generator</a>
+            <a href="{{ url_for('analyzer') }}">Analyzer</a>
+            <a href="{{ url_for('page_brute') }}">Brute_force_time</a>
+            <a href="{{ url_for('page_hash') }}">Hash coverter</a>
+            <a href="{{ url_for('page_base') }}">Base enc/dec</a>
+        </div>
+    </div>
+    </nav>
+        </header>
+
+        <div class="mainbox">
+            <h1>Password Nexus</h1>
+            <hr><br>
+            <p><strong>"Your all-in-one platform for generating, analyzing, and securing your digital life."</strong></p>
+        </div>
+
+        <div class="workflow-box">
+            <h2>🔐 Password Security Workflow</h2>
+            <strong>
+            <p>1. First, generate a strong password using the <b>Password Generator</b>.</p>
+            <p>2. Next, analyze its strength with the <b>Strength Analyzer</b>.</p>
+            <p>3. Then, estimate crack time using the <b>Bruteforce Estimator</b>.</p>
+            <p>4. After that, convert the password into a secure hash with the <b>Hash Converter</b>.</p>
+            <p>5. Finally, encode it for safe storage using <b>Base Encoding</b>.</p>
+            </strong>
+        </div>
+
+    </div>
+    
+    <div class="background">
+        <div class="toolbox">
+            
+            <div class="tooldescription">
+                <h3>Password Generator</h3>
+                <p>“Create ultra-strong passwords in seconds. Customize length and characters to secure all your accounts effortlessly.”</p>
+                <a href="{{ url_for('generate_password') }}">🔐 Generate Password</a>
+            </div>
+
+            <div class="tooldescription">
+                <h3>Strength Analyzer</h3>
+                <p>“Test any password’s strength instantly. Get clear feedback on weaknesses and tips to make it hacker-proof.”</p>
+                <a href="{{ url_for('analyzer') }}">🧪 Analyze Strength</a>
+            </div>
+
+            <div class="tooldescription">
+                <h3>Bruteforce Estimator</h3>
+                <p>“See how long it would take to crack your password. Understand real-world security and strengthen weak passwords.”</p>
+                <a href="{{ url_for('page_brute') }}">⏱️ Estimate Crack Time</a>
+            </div>
+
+            <div class="tooldescription">
+                <h3>Hash Converter</h3>
+                <p>“Convert passwords into secure hashes safely. Perfect for storing or verifying credentials without exposing your data.”</p>
+                <a href="{{ url_for('page_hash') }}">🔄 Convert to Hash</a>
+            </div>
+
+            <div class="tooldescription">
+                <h3>Base Encoding</h3>
+                <p>“Easily encode your text into Base64 (or other formats) for secure storage or transmission, and decode it back anytime.”</p>
+                <a href="{{ url_for('page_base') }}">📦 Encode/Decode</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Air University | Cybersecurity Project</p>
+        <p>Important: Keep your credentials safe. Unauthorized access is prohibited.</p>
+    </footer>
+
+</body>
+</html>

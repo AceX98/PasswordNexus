@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Encoding</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='generator.css') }}">
+</head>
+
+<body>
+
+<header>
+    <div class="header">
+        <div class="logo-menu"><b>⟠🔐⟠ PasswordNexus</b></div>
+        <div class="menu-items">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('generate_password') }}">Generator</a>
+            <a href="{{ url_for('analyzer') }}">Analyzer</a>
+            <a href="{{ url_for('page_brute') }}">Bruteforce</a>
+            <a href="{{ url_for('page_hash') }}">Hash converter</a>
+            <a href="{{ url_for('page_base') }}">Base enc/dec</a>
+        </div>
+    </div>
+</header>
+
+<div class="basebox">
+    <form action="{{ url_for('page_base') }}" method="POST">
+        <h1><strong>📦Base Encode/Decode</strong></h1>
+
+        <div class="inputbox">
+            <input type="text" name="text" placeholder="Enter String" required autocomplete="off" style="color: white;">
+        </div>
+
+        <div class="inputbox">
+            <select id="mainChoice" name="mode" required style="color: white;">
+                <option value="" disabled selected>Choose Operation</option>
+                <option value="encode">Encoding</option>
+                <option value="decode">Decoding</option>
+            </select>
+        </div>
+
+        <div class="inputbox" id="encodeMenu" style="display:none;">
+            <select name="choice" style="color: white;"> 
+                <option disabled selected>Select Type</option>
+                <option value="1">Base64</option>
+                <option value="3">Base32</option>
+                <option value="4">Base16</option>
+                <option value="5">URL Encode</option>
+            </select>
+        </div>
+
+        <div class="inputbox" id="decodeMenu" style="display:none;" >
+            <select name="choice" style="color: white;">
+                <option disabled selected>Select Type</option>
+                <option value="1">Base64</option>
+                <option value="3">Base32</option>
+                <option value="4">Base16</option>
+                <option value="5">URL Decode</option>
+            </select>
+        </div>
+
+        <div class="verifybase">
+            <label><input type="checkbox" required> Agree to <a href="{{ url_for('page_terms') }}" target="_blank" class="term">Terms</a></label>
+        </div>
+
+        <button>Proceed</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+       <strong>Output:</strong><br>
+       {{ result }}
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById("mainChoice").addEventListener("change", function () {
+        let choice = this.value;
+        let encodeSelect = document.querySelector('#encodeMenu select');
+        let decodeSelect = document.querySelector('#decodeMenu select');
+
+        if (choice === "encode") {
+            document.getElementById("encodeMenu").style.display = "block";
+            document.getElementById("decodeMenu").style.display = "none";
+            encodeSelect.required = true;
+            decodeSelect.required = false;
+        }
+        else if (choice === "decode") {
+            document.getElementById("encodeMenu").style.display = "none";
+            document.getElementById("decodeMenu").style.display = "block";
+            encodeSelect.required = false;
+            decodeSelect.required = true;
+        }
+    });
+</script>
+
+<footer>
+    <div class="footer">
+        <p>© 2025 Air University | Cybersecurity Project</p>
+    </div>
+</footer>
+
+</body>
+</html>

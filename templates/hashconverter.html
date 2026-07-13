@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HashConverter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='generator.css') }}">
+</head>
+<body>
+
+<header>
+    <nav>
+    <div class="header">
+        <div class="logo-menu"><b>⟠🔐⟠ PasswordNexus</b></div>
+        <div class="menu-items">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('generate_password') }}">Generator</a>
+            <a href="{{ url_for('analyzer') }}">Analyzer</a>
+            <a href="{{ url_for('page_brute') }}">Brute_force_time</a>
+            <a href="{{ url_for('page_hash') }}">Hash coverter</a>
+            <a href="{{ url_for('page_base') }}">Base enc/dec</a>
+        </div>
+    </div>
+    </nav>
+</header>
+
+<div class="hashconvertorbox">
+    <form action="{{ url_for('page_hash') }}" method="POST" autocomplete="off">
+        <h1 class="hashheading"><strong>🔄 Hash Converter</strong></h1>
+        <div class="hashtext">
+            <input type="text" name="text" placeholder="Enter Text to Hash" required style="color:white;">
+        </div>
+        
+        <div class="hashtext">
+            <select name="algorithm" required style="color: white; padding-left:10px">
+                <option value="" disabled selected>Select Algorithm</option>
+                <option value="md5">MD5</option>
+                <option value="sha1">SHA1</option>
+                <option value="sha256">SHA256</option>
+                <option value="sha512">SHA512</option>
+            </select>
+        </div>
+
+        <div class="verifyhash">
+           <label><input type="checkbox" required> Agree to <a href="{{ url_for('page_terms') }}" target="_blank" class="term">Terms</a></label>
+        </div>
+
+        <button class="hashbutton">Convert Now</button>
+    </form>
+
+    {% if result %}
+    <div class="result4">
+       <p style="color: #fb8b24; font-size: 14px; margin-bottom:5px;">Result:</p>
+       {{ result }}
+    </div>
+    {% endif %}
+</div>
+
+<footer>
+    <div class="footer">
+        <p>© 2025 Air University | Cybersecurity Project</p>
+    </div>
+</footer>
+</body>
+</html>

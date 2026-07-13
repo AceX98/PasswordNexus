@@ -25,7 +25,6 @@ Abdul Haseeb [2500710]
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![University](https://img.shields.io/badge/Air_University-ICT_Project-00D4FF?style=flat-square)
-![Year](https://img.shields.io/badge/Semester-Fall_2025-FF6B6B?style=flat-square)
 
 </div>
 

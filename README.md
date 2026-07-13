@@ -167,8 +167,8 @@ On shutdown, logs are exported to `log.txt` automatically via `export_logs()`.
 
 <div align="center">
 
-*Air University · Islamabad · ICT Project · Fall 2025*  
-*Abdul Haseeb — 2500710*
+*Air University ·  
+*Abdul Haseeb *
 
 ![Python](https://img.shields.io/badge/Built_with-Python_%2B_Flask-3776AB?style=flat-square&logo=python&logoColor=white)
 

@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+
+# Database (contains real logs — don't upload)
+nexus.db
+log.txt
+
+# OS
+.DS_Store
+Thumbs.db
